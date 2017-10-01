@@ -1,4 +1,4 @@
-#include <stdio.h> // serve
+		#include <stdio.h> // serve
 #include <stdlib.h> // serve
 #include <time.h> // solo per srand()
 
@@ -41,8 +41,8 @@ int controllavita()
 	printf("Hai vinto! I tuoi punti abilità sono ora %d\n", puntitot);
 	salva();
 		}	
-else 
-if (vita<=0)
+	else 
+	if (vita<=0)
 		{
 	printf("Hai perso...\n");
 		}
