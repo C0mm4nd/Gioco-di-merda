@@ -8,6 +8,79 @@ This program is under GPL v3.0 */
 float vita=1000, vita2=1000, dannifin1, dannifin2,atk=1,atk2=1; //Numeri con la virgola tipo la vita o le percentuali
 int scelta, danni1, danni2, scappa, x ,z=0; //Numeri interi che non servono effettivamente a una mazza
 int puntitot=0, sceltah, req, mossa, braciere, braciereimparato=0, teletrasporto, teletrasportoimparato=0, protezione, protezioneimparato=0; //Numeri interi per l'insegnamento mosse
+int lingua; //Lingua1
+char *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7,*dialogo8,*dialogo9,*dialogo10,*dialogo11,*dialogo12,*dialogo13,*dialogo14,*dialogo15,*dialogo16,*dialogo17,*dialogo18,*dialogo19,*dialogo20,*dialogo21,*dialogo22,*dialogo23,*dialogo24,*dialogo25,*dialogo26,*dialogo27; //Lingua2
+
+
+int checklang()
+	{
+		printf("Language/Lingua? 1=ITA, 2=ENG\n");
+		scanf("%d", &lingua);
+		if(lingua==1)
+			{
+				dialogo1="Salvataggio in corso... Il file di salvataggio è situato nella cartella del gioco\n";
+				dialogo2="Errore in apertura del file\n";
+				dialogo3="Hai vinto! I tuoi punti abilità sono ora";
+				dialogo4="Hai perso...\n";
+				dialogo5="Hai subito dei danni di: ";
+				dialogo6="Hai inflitto dei danni di: ";
+				dialogo7="Non subisci nulla, avresti subito dei danni di: ";
+				dialogo8="Il suo attacco non puo' diminuire!\n";
+				dialogo9="L'attacco del nemico e' ora di: ";
+				dialogo10="1: CONTINUA, 2: ESCI\n";
+				dialogo11="Cosa fai?\n1=COMBATTI, 2=IMPARA\n";
+				dialogo12="Appare un Pokemon\n";
+				dialogo13="Che mossa usi? 1=AZIONE, 2=PROTEZIONE, 3=MOSSA Z, 4=RUGGITO, 5=PAUSA\n";
+				dialogo14="Hai gia' usato la Mossa Z!\n";
+				dialogo15="Che mossa vuoi imparare? 1=Braciere, 2=Teletrasporto, 3=Protezione\n";
+				dialogo16="Vuoi imparare braciere? Ti serviranno questi punti abilità (1=SI, 2=NO): ";
+				dialogo17="Hai imparato Braciere, e i tuoi punti abilità sono ora: ";
+				dialogo18="Vuoi imparare un'altra mossa? 1=Sì, 2=No\n";
+				dialogo19="Non hai abbastanza punti abilità\n";
+				dialogo20="Conosci già braciere\n";
+				dialogo21="Vuoi imparare teletrasporto? Ti serviranno %d punti abilità 1=Sì, 2=No\n";
+				dialogo22="Hai imparato teletrasporto, e i tuoi punti abilità sono ora %d\n";
+				dialogo23="Vuoi imparare protezione? Ti serviranno %d punti abilità 1=Sì, 2=No\n";
+				dialogo24="Hai imparato protezione, e i tuoi punti abilità sono ora %d\n";
+				dialogo25="Conosci già teletrasporto\n";
+				dialogo26="Conosci già protezione\n";
+				dialogo27="DebugIT";
+			}
+		else
+		if(lingua==2)
+			{
+				dialogo1="Saving the game...\n";
+				dialogo2="An error occured while opening the file\n";
+				dialogo3="You won! Now, your money are:";
+				dialogo4="You lost...\n";
+				dialogo5="You took a damage of: ";
+				dialogo6="You inflicted a damage of: ";
+				dialogo7="You don't take any damage, but you would have taken: ";
+				dialogo8="Its attack cannot be lowered!\n";
+				dialogo9="The attack stat of the enemy is now: ";
+				dialogo10="1: CONTINUE, 2: EXIT\n";
+				dialogo11="What do you want to do?\n1=FIGHT, 2=LEARN\n";
+				dialogo12="A wild Pokemon appears\n";
+				dialogo13="What move? 1=TACKLE, 2=PROTECT, 3=Z-MOVE, 4=GROWL, 5=PAUSE\n";
+				dialogo14="You 've already used a Z-Move!\n";
+				dialogo15="What move do you want to learn? 1=Ember, 2=Teleport, 3=Protect\n";
+				dialogo16="You wanna learn ember? It will cost this much (1=YES, 2=NO): ";
+				dialogo17="You learnt ember, now your money are: ";
+				dialogo18="Wanna learn another move? 1=Yes, 2=No\n";
+				dialogo19="You don't have enough money\n";
+				dialogo20="You already know ember\n";
+				dialogo21="You wanna learn teleport? It will cost this much (1=YES, 2=NO): ";
+				dialogo22="You learnt teleport, now your money are: ";
+				dialogo23="You wanna learn protect? It will cost this much (1=YES, 2=NO):";
+				dialogo24="You learnt protect, now your money are: ";
+				dialogo25="You already know teleport\n";
+				dialogo26="You already know protect";
+				dialogo27="DebugEN";
+			}
+		else
+		printf("Error, retry\n");
+	}
+
 int rigenerazione() //Funzione di rigenerazione
 	{
 	float vita=1000, vita2=1000, atk=1,atk2=1; //Porta le variabili come all'inizio
@@ -16,12 +89,12 @@ int rigenerazione() //Funzione di rigenerazione
 	
 int salva() //Funzione del salvataggio
 	{
-	printf("Salvataggio in corso... Il file di salvataggio è situato nella cartella del gioco\n"); //Dice al giocatore che sta salvando
+	printf(dialogo1); //Dice al giocatore che sta salvando
 	FILE *fd; // Dice al programma che stiamo avendo a che fare con un file
 	fd=fopen("salvataggio.txt", "w"); //Apre salvataggio.txt in scrittura
 	if( fd==NULL ) //Se ci sono errori nella apertura del file
 				   {
-    perror("Errore in apertura del file\n"); //Dillo al giocatore
+    perror(dialogo2); //Dillo al giocatore
   				   }		
 	fprintf(fd, "%d\n", puntitot); //Scriviamo il valore corrispondente a puntitot nel file di prima, salvataggio.txt
 	system("pause"); // Pauso il sistema
@@ -41,13 +114,14 @@ int controllavita() //Funzione che controlla che la vita non vada sotto lo 0
 	if (vita2<=0) //Se la vita del Pokemon è minore o uguale a 0
 		{
 	puntitot=puntitot+1; // I tuoi punti abilità sono quelli correnti più uno
-	printf("Hai vinto! I tuoi punti abilità sono ora %d\n", puntitot); //Diciamo al giocatore che ha vinto e il numero di punti abilità in possesso
+	printf(dialogo3); //Diciamo al giocatore che ha vinto 
+	printf("%d\n", puntitot);//e il numero di punti abilità in possesso
 	salva();  //Richiamo della funzione salva in modo che i punti vengano salvati nel txt
 		}	
 	else // Oppure
 	if (vita<=0) //Se la vita del giocatore è minore o uguale a 0
 		{
-	printf("Hai perso...\n"); //Diciamo al giocatore che ha perso
+	printf(dialogo4); //Diciamo al giocatore che ha perso
 		}
 	}	
 int danni() //Azione
@@ -56,11 +130,13 @@ int danni() //Azione
     danni2=rand()%100; //random 2
     dannifin2=danni2*atk; //dannifin2 sono i danni tuoi, e dannifin2 = danni2 calcolato appena sopra * l'atk del nemico il quale può essere diminuito da ruggito
     vita=vita-dannifin2; //dopo aver preso un attacco la tua vita scende
-    printf("Hai subito dei danni di %f\n", dannifin2); //output danni tuoi
+    printf(dialogo5); //output danni tuoi
+    printf("\n%f\n", dannifin2);
     danni1=rand()%100; //random 3
     dannifin1=danni1*atk2; //dannfin1 sono i danni che infliggi al nemico, e danni1 = danni1 calcolato sopra * l'atk tuo che per ora non può essere diminuito in alcun modo quindi resta 1
     vita2=vita2-dannifin1; //la vita del nemico diminuisce
-    printf("Hai inflitto dei danni di %f\n", dannifin1); //output danni del nemico
+    printf(dialogo6); //output danni del nemico
+    printf("\n%f\n", dannifin1);
     controllavita();
 	}
 
@@ -68,7 +144,8 @@ int prot() //Protezione
 	{
 	danni2=rand()%100; //random 2
 	dannifin2=danni2*atk; //calcolo dei danni che staresti per subire
-    printf("Non subisci nulla, avresti subito dei danni di %f\n", dannifin2); //output dei danni tuoi ma non subisci niente
+    printf(dialogo7); //output dei danni tuoi ma non subisci niente
+    printf("\n%f\n", dannifin2);
 	}
 	
 int zmove()
@@ -77,11 +154,13 @@ int zmove()
     danni2=rand()%100; //random 2
     dannifin2=danni2*atk; //dannifin2 sono i danni tuoi, e dannifin2 = danni2 calcolato appena sopra * l'atk del nemico il quale può essere diminuito da ruggito
     vita=vita-dannifin2;  //dopo aver preso un attacco la tua vita scende
-    printf("Hai subito dei danni di %f\n", dannifin2); //output danni tuoi
+    printf(dialogo5); //output danni tuoi
+    printf("\n%f\n", dannifin2);
     danni1=rand()%345; //random 3
     dannifin1=danni1*atk2; //dannfin1 sono i danni che infliggi al nemico, e danni1 = danni1 calcolato sopra * l'atk tuo che per ora non può essere diminuito in alcun modo quindi resta 1
     vita2=vita2-dannifin1; //la vita del nemico diminuisce
-    printf("Hai inflitto dei danni di %f\n", dannifin1); //output danni del nemico
+    printf(dialogo6); //output danni del nemico
+    printf("\n%f\n", dannifin1);
    	z=1; //la mossa Z viene impostata come "già utilizzata" e la prossima volta non potrà essere utilizzata fino alla prossima battaglia o finchè non si chiude e riapre il gioco
     controllavita();	
 	}
@@ -92,21 +171,24 @@ int ruggito()
     danni2=rand()%100; //random 2
    	dannifin2=danni2*atk; //dannifin2 sono i danni tuoi, e dannifin2 = danni2 calcolato appena sopra * l'atk del nemico il quale può essere diminuito da ruggito
    	vita=vita-dannifin2; //dopo aver preso un attacco la tua vita scende
-   	printf("Hai subito dei danni di %f\n", dannifin2); //output danni tuoi
+   	printf(dialogo5); //output danni tuoi
+   	printf("\n%f\n", dannifin2);
     if (atk<=0.25) //L'attacco è minore o uguale di 0,25? Se sì:
    			{
-    		printf("Il suo attacco non puo' diminuire!\n"); //Dì al giocatore che esso non può diminuire
+    		printf(dialogo8); //Dì al giocatore che esso non può diminuire
 			}
 	else //Se non è minore o uguale a 0,25, invece:
    	atk=atk-0.25; //L'attacco (che di default è 1) diminuisce di 0,25
-    printf("L'attacco del nemico e' ora di %f\n", atk); //Il giocatore viene informato del fatto che l'attacco del nemico è sceso
+    printf(dialogo9); //Il giocatore viene informato del fatto che l'attacco del nemico è sceso
+    printf("\n%f\n", atk);
 	}
 
 main()  //funzione main
 	{
 	menu: //Label menu
 	carica(); //Richiamo della funzione carica
-	printf("1=CONTINUA, 2=ESCI\n"); //Prima scelta... Per le scelte avrei potuto usare uno switch case ma non avevo voglia
+	checklang();
+	printf(dialogo10); //Prima scelta... Per le scelte avrei potuto usare uno switch case ma non avevo voglia
 	scanf("%d",&scelta); //Prende l'input da tastiera e lo inserisce in scelta; %d perchè è int
 	if (scelta==1) //La scelta è 1, ovvero continuare? Se sì:
 		{
@@ -114,15 +196,15 @@ main()  //funzione main
 		rigenerazione(); //richiamo di rigenerazione()
    	 	inizio: //Label inizio
    		scelta=0; //Reset e riciclo di una variabile
-   		printf("Cosa fai?\n1=COMBATTI, 2=IMPARA\n"); //Seconda scelta 
+   		printf(dialogo11); //Seconda scelta 
     	scanf("%d", &scelta); //scanf prende l'input da tastiera e lo inserisce in scelta; %d perchè è int
     	if (scelta==1) //La tua scelta è combattere? Se sì:
     		{
-    		printf("Appare un Pokemon\n"); //Scritta al giocatore che arriva il Pokémon
+    		printf(dialogo12); //Scritta al giocatore che arriva il Pokémon
     		x=1;
     		for(x=1;x>0;x++) //Tutto quel che sta per accadere succede solamente se la vita del giocatore è maggiore (...o uguale? perchè ho messo l'uguale?) a zero
     			{
-    			printf("Che mossa usi? 1=AZIONE, 2=PROTEZIONE, 3=MOSSA Z, 4=RUGGITO, 5=PAUSA\n"); //terza scelta
+    			printf(dialogo13); //terza scelta
     			scelta=0; //riciclo variabile, ancora
     			scanf("%d",&scelta); //Prende l'input da tastiera e lo inserisce in scelta; %d perchè è int
     			if (scelta==1) //Se la tua scelta è azione
@@ -142,7 +224,7 @@ main()  //funzione main
 						zmove(); //se non è già stata usata, chiama la funzione della mossa z
 						}
            		 	else //se la mossa z è già stata utilizzata
-           	 		printf("Hai gia' usato la Mossa Z!\n"); //dì al giocatore che l'ha già usata
+           	 		printf(dialogo14); //dì al giocatore che l'ha già usata
 					}
 				else //sennò
 				if (scelta==4) //se la tua scelta è ruggito
@@ -158,14 +240,15 @@ main()  //funzione main
 		if (scelta==2) //la tua scelta è fuggire
 			{
 			imparo: //Label d'inizio dell'insegnamento mosse
-			printf("Che mossa vuoi imparare? 1=Braciere, 2=Teletrasporto, 3=Protezione\n"); //Chiediamo al giocatore che mossa vuole imparare, i nomi sono a caso
+			printf(dialogo15); //Chiediamo al giocatore che mossa vuole imparare, i nomi sono a caso
 			scanf("%d", &mossa); // Input da tastiera
 			switch(mossa) //Se la variabile mossa
 				{
 					
 				case 1: //è uguale a 1
 				req=3; //I punti abilità requisiti per imparare la mossa sono 3
-				printf("Vuoi imparare braciere? Ti serviranno %d punti abilità 1=Sì, 2=No\n", req); //Chiediamo al giocatore se vuole davvero imparare la mossa e gli diciamo quanti punti gli servono
+				printf(dialogo16); //Chiediamo al giocatore se vuole davvero imparare la mossa e gli diciamo quanti punti gli servono
+				printf("\n%d\n", req);
 				scanf("%d",&sceltah); // Altro input da tastiera
 				if (sceltah==1)	//Se l'input corrisponde a 1
 					{
@@ -175,8 +258,9 @@ main()  //funzione main
 							{
 							puntitot=puntitot-req; //I punti requisiti vengono sottratti ai punti totali
 							braciereimparato=1; //Diciamo al gioco che questa mossa è stata imparata
-							printf("Hai imparato Braciere, e i tuoi punti abilità sono ora %d\n", puntitot); //Diciamo al giocatore che il Pokemon ha imparato la nuova mossa e i suoi punti abilità sono %d
-							printf("Vuoi imparare un'altra mossa? 1=Sì, 2=No\n"); //Chiediamo al giocatore se vuole far imparare una nuova mossa al suo Pokemon
+							printf(dialogo17); //Diciamo al giocatore che il Pokemon ha imparato la nuova mossa e i suoi punti abilità sono %d
+							printf("\n%d\n", puntitot);
+							printf(dialogo18); //Chiediamo al giocatore se vuole far imparare una nuova mossa al suo Pokemon
 							scanf("%d", &sceltah); //Ennesimo input da tastiera
 							if(sceltah==1) //Se l'input è 1
 								{
@@ -192,15 +276,15 @@ main()  //funzione main
 								else // Oppure
 								if (puntitot-req<=0)//Se il giocatore non ha più di 0 punti abilità
 									{
-									printf("Non hai abbastanza punti abilità\n"); //Diciamo al giocatore che non ha abbastanza punti abilità
+									printf(dialogo19); //Diciamo al giocatore che non ha abbastanza punti abilità
 									}
 								}		
 							}
 						else //Oppure
 						if(braciereimparato==1)  //Se la mossa è già stata imparata
 							{	
-							printf("Conosci già braciere\n"); //Diciamo al giocatore che la conosce già
-							printf("Vuoi imparare un'altra mossa? 1=Sì, 2=No\n"); //E chiediamo se vogliamo fargli imparare un'altra mossa
+							printf(dialogo20); //Diciamo al giocatore che la conosce già
+							printf(dialogo18); //E chiediamo se vogliamo fargli imparare un'altra mossa
 							scanf("%d", &sceltah); //Input da tastiera
 							if(sceltah==1) //Se sceltah è 1
 								{
@@ -216,8 +300,8 @@ main()  //funzione main
 					else //oppure
 					if (puntitot-req<=0) //se i punti totali meno quelli requisiti sono minori o uguali a 0
 						{
-						printf("Non hai abbastanza punti abilità\n"); //Diciamo al giocatore che non ha abbastanza punti abilità
-						printf("Vuoi imparare un'altra mossa? 1=Sì, 2=No\n"); //E gli chiediamo se vuole imparare una nuova mossa al suo Pokemon
+						printf(dialogo19); //Diciamo al giocatore che non ha abbastanza punti abilità
+						printf(dialogo18); //E gli chiediamo se vuole imparare una nuova mossa al suo Pokemon
 						scanf("%d", &sceltah); //Input da tastiera
 						if(sceltah==1) //Se sceltah è 1
 							{
@@ -233,7 +317,8 @@ main()  //funzione main
 				
 				case 2: //se invece mossa è uguale a 2 questo è il secondo caso
 				req=6; // i punti requisiti sono 6, e così via, è uguale a sopra
-				printf("Vuoi imparare teletrasporto? Ti serviranno %d punti abilità 1=Sì, 2=No\n", req); 
+				printf(dialogo21); 
+				printf("\n%d\n", req);
 				scanf("%d",&sceltah);
 				if (sceltah==1)
 						{
@@ -243,8 +328,9 @@ main()  //funzione main
 								{
 								puntitot=puntitot-req;
 								teletrasportoimparato=1;
-								printf("Hai imparato teletrasporto, e i tuoi punti abilità sono ora %d\n", puntitot);
-								printf("Vuoi imparare un'altra mossa? 1=Sì, 2=No\n");
+								printf(dialogo22);
+								printf("\n%d\n", puntitot);
+								printf(dialogo18);
 								scanf("%d", &sceltah);
 								if(sceltah==1)
 									{
@@ -262,8 +348,8 @@ main()  //funzione main
 							else
 							if(teletrasportoimparato==1)
 								{
-								printf("Conosci già teletrasporto\n");
-								printf("Vuoi imparare un'altra mossa? 1=Sì, 2=No\n");
+								printf(dialogo25);
+								printf(dialogo18);
 								scanf("%d", &sceltah);
 								if(sceltah==1)
 									{
@@ -279,8 +365,8 @@ main()  //funzione main
 						else
 						if (puntitot-req<=0)
 							{
-							printf("Non hai abbastanza punti abilità\n");
-							printf("Vuoi imparare un'altra mossa? 1=Sì, 2=No\n");
+							printf(dialogo19);
+							printf(dialogo18);
 							scanf("%d", &sceltah);
 							if(sceltah==1)
 								{
@@ -293,7 +379,8 @@ main()  //funzione main
 								
 								case 3:
 								req=5;
-								printf("Vuoi imparare protezione? Ti serviranno %d punti abilità 1=Sì, 2=No\n", req);
+								printf(dialogo23);
+								printf("\n%d\n", req);
 								scanf("%d",&sceltah);
 								if (sceltah==1)
 									{
@@ -303,8 +390,9 @@ main()  //funzione main
 											{
 											puntitot=puntitot-req;
 											protezioneimparato=1;
-											printf("Hai imparato protezione, e i tuoi punti abilità sono ora %d\n", puntitot);
-											printf("Vuoi imparare un'altra mossa? 1=Sì, 2=No\n");
+											printf(dialogo24);
+											printf("\n%d\n", puntitot);
+											printf(dialogo18);
 											scanf("%d", &sceltah);
 											if(sceltah==1)
 												{
@@ -322,8 +410,8 @@ main()  //funzione main
 										else
 										if(protezioneimparato==1)
 											{
-											printf("Conosci già protezione\n");
-											printf("Vuoi imparare un'altra mossa? 1=Sì, 2=No\n");
+											printf(dialogo26);
+											printf(dialogo18);
 											scanf("%d", &sceltah);
 											if(sceltah==1)
 												{
@@ -339,8 +427,8 @@ main()  //funzione main
 									else
 									if (puntitot-req<=0)
 										{
-										printf("Non hai abbastanza punti abilità\n");
-										printf("Vuoi imparare un'altra mossa? 1=Sì, 2=No\n");
+										printf(dialogo19);
+										printf(dialogo18);
 										scanf("%d", &sceltah);
 										if(sceltah==1)
 											{
