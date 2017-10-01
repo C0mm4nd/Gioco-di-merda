@@ -17,7 +17,7 @@ int rigenerazione()
 	
 int salva()
 	{
-	printf("Salvataggio in corso...\n");
+	printf("Salvataggio in corso... Il file di salvataggio è situato nella cartella del gioco\n");
 	FILE *fd;
 	fd=fopen("salvataggio.txt", "w");
 	if( fd==NULL ) {
