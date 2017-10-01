@@ -4,6 +4,10 @@ IT:
 
 Gioco basato su Pokémon che per ora non ha praticamente nulla, neanche la grafica, ma magari in futuro la inserirò
 
+Ha supporto a più lingue. 
+
+La funzione dell'insegnamento delle nuove mosse è ancora in lavorazione quindi non funziona.
+
 Richiede: stdio.h, stdlib.h, time.h per compilare
 
 Lo sviluppo di questo gioco è molto lento. Non ti aspettare dei rilasci in breve tempo.
@@ -11,6 +15,10 @@ Lo sviluppo di questo gioco è molto lento. Non ti aspettare dei rilasci in brev
 EN:
 
 Game based on Pokémon which has nothing for now, not even graphics, but maybe I'll add it in the future
+
+It has multilanguage support.
+
+The learning function is still a work in progress, that is why it does not work for now.
 
 Needs: stdio.h, stdlib.h, time.h to compile
 
