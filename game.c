@@ -1,4 +1,4 @@
-		#include <stdio.h> // serve
+#include <stdio.h> // serve
 #include <stdlib.h> // serve
 #include <time.h> // solo per srand()
 
