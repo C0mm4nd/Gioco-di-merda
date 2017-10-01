@@ -1,3 +1,6 @@
+/* Copyright © 2017 (Volca)
+This program is under GPL v3.0 */
+
 #include <stdio.h> // serve
 #include <stdlib.h> // serve
 #include <time.h> // solo per srand()
