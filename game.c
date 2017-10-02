@@ -51,7 +51,7 @@ int checklang()
 			{
 				dialogo1="Saving the game...\n";
 				dialogo2="An error occured while opening the file\n";
-				dialogo3="You won! Now, your money are:";
+				dialogo3="You won! Now, your skill points are:";
 				dialogo4="You lost...\n";
 				dialogo5="You took a damage of: ";
 				dialogo6="You inflicted a damage of: ";
@@ -65,14 +65,14 @@ int checklang()
 				dialogo14="You 've already used a Z-Move!\n";
 				dialogo15="What move do you want to learn? 1=Ember, 2=Teleport, 3=Protect\n";
 				dialogo16="You wanna learn ember? It will cost this much (1=YES, 2=NO): ";
-				dialogo17="You learnt ember, now your money are: ";
+				dialogo17="You learnt ember, now your skill points are: ";
 				dialogo18="Wanna learn another move? 1=Yes, 2=No\n";
-				dialogo19="You don't have enough money\n";
+				dialogo19="You don't have enough skill points\n";
 				dialogo20="You already know ember\n";
 				dialogo21="You wanna learn teleport? It will cost this much (1=YES, 2=NO): ";
-				dialogo22="You learnt teleport, now your money are: ";
+				dialogo22="You learnt teleport, now your skill points are: ";
 				dialogo23="You wanna learn protect? It will cost this much (1=YES, 2=NO):";
-				dialogo24="You learnt protect, now your money are: ";
+				dialogo24="You learnt protect, now your skill points are: ";
 				dialogo25="You already know teleport\n";
 				dialogo26="You already know protect";
 				dialogo27="DebugEN";
