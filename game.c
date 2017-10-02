@@ -55,7 +55,7 @@ int checklang()
 				dialogo4="You lost...\n";
 				dialogo5="You took a damage of: ";
 				dialogo6="You inflicted a damage of: ";
-				dialogo7="You don't take any damage, but you would have taken: ";
+				dialogo7="You didn't take any damage, but you would have taken: ";
 				dialogo8="Its attack cannot be lowered!\n";
 				dialogo9="The attack stat of the enemy is now: ";
 				dialogo10="1: CONTINUE, 2: EXIT\n";
