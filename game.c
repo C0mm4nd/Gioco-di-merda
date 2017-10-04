@@ -5,11 +5,12 @@ This program is under GPL v3.0 */
 #include <stdlib.h> // serve
 #include <time.h> // solo per srand()
 
-float vita, vita2, dannifin1, dannifin2,atk=1,atk2=1; //Numeri con la virgola tipo la vita o le percentuali
+float dannifin1, dannifin2,atk=1,atk2=1; //Numeri con la virgola tipo la vita o le percentuali
+int vita, vita2; //Unsigned int = numeri interi senza segno
 int scelta, danni1, danni2, scappa, x ,z=0; //Numeri interi che non servono effettivamente a una mazza
 int puntitot=0, sceltah, req, mossa, braciere, braciereimparato=0, teletrasporto, teletrasportoimparato=0, protezione, protezioneimparato=0; //Numeri interi per l'insegnamento mosse
 int lingua; //Lingua  parte 1
-char *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7,*dialogo8,*dialogo9,*dialogo10,*dialogo11,*dialogo12,*dialogo13,*dialogo14,*dialogo15,*dialogo16,*dialogo17,*dialogo18,*dialogo19,*dialogo20,*dialogo21,*dialogo22,*dialogo23,*dialogo24,*dialogo25,*dialogo26,*dialogo27,*dialogo28,*dialogo29; //Lingua parte 2
+char *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7,*dialogo8,*dialogo9,*dialogo10,*dialogo11,*dialogo12,*dialogo13,*dialogo14,*dialogo15,*dialogo16,*dialogo17,*dialogo18,*dialogo19,*dialogo20,*dialogo21,*dialogo22,*dialogo23,*dialogo24,*dialogo25,*dialogo26,*dialogo27,*dialogo28,*dialogo29,*dialogo30;//,*dialogo31 //Lingua parte 2
 char nome;
 
 int checklang()
@@ -18,10 +19,10 @@ int checklang()
 		scanf("%d", &lingua);
 		if(lingua==1)
 			{
-				dialogo1="Salvataggio in corso... Il file di salvataggio è situato nella cartella del gioco\n";
-				dialogo2="Errore in apertura del file\n";
-				dialogo3="Hai vinto! I tuoi punti abilità sono ora";
-				dialogo4="Hai perso...\n";
+				dialogo1="\nSalvataggio in corso... Il file di salvataggio è situato nella cartella del gioco\n";
+				dialogo2="\nErrore in apertura del file\n";
+				dialogo3="\nHai vinto! I tuoi punti abilità sono ora";
+				dialogo4="\nHai perso...\n";
 				dialogo5="Hai subito dei danni di: ";
 				dialogo6="Hai inflitto dei danni di: ";
 				dialogo7="Non subisci nulla, avresti subito dei danni di: ";
@@ -46,14 +47,16 @@ int checklang()
 				dialogo26="Conosci già protezione\n";
 				dialogo27="La tua vita è ora: ";
 				dialogo28="La vita dell'avversario è ora: ";
-				//dialogo29="DebugIT";
+				dialogo29="La tua vita è scesa a zero!";
+				dialogo30="La vita dell'avversario è scesa a zero!";
+				//dialogo31="DebugIT";
 			}
 		else
 		if(lingua==2)
 			{
-				dialogo1="Saving the game...\n";
-				dialogo2="An error occured while opening the file\n";
-				dialogo3="You won! Now, your skill points are:";
+				dialogo1="\nSaving the game... The save file is located in the directory of the game\n";
+				dialogo2="\nAn error occured while opening the file\n";
+				dialogo3="\nYou won! Now, your skill points are:";
 				dialogo4="You lost...\n";
 				dialogo5="You took a damage of: ";
 				dialogo6="You inflicted a damage of: ";
@@ -79,7 +82,9 @@ int checklang()
 				dialogo26="You already know protect";
 				dialogo27="Your health is now: ";
 				dialogo28="The opponent's health is now: ";
-				//dialogo29="DebugEN";
+				dialogo29="Your health is now zero!";
+				dialogo30="The opponent's health is now zero!";
+				//dialogo31="DebugEN";
 			}
 		else
 		printf("Error, retry\n");
@@ -100,7 +105,7 @@ int salva() //Funzione del salvataggio
 				   {
     perror(dialogo2); //Dillo al giocatore
   				   }		
-	fprintf(fd, "%d\n", puntitot); //Scriviamo il valore corrispondente a puntitot nel file di prima, salvataggio.txt
+	fprintf(fd, "\n%d\n", puntitot); //Scriviamo il valore corrispondente a puntitot nel file di prima, salvataggio.txt
 	system("pause"); // Pauso il sistema
 	exit(0);
 	}
@@ -118,6 +123,7 @@ int controllavita() //Funzione che controlla che la vita non vada sotto lo 0
 	if (vita2<=0) //Se la vita del Pokemon è minore o uguale a 0
 		{
 	puntitot=puntitot+1; // I tuoi punti abilità sono quelli correnti più uno
+	printf(dialogo30);
 	printf(dialogo3); //Diciamo al giocatore che ha vinto 
 	printf("%d\n", puntitot);//e il numero di punti abilità in possesso
 	salva();  //Richiamo della funzione salva in modo che i punti vengano salvati nel txt
@@ -125,9 +131,12 @@ int controllavita() //Funzione che controlla che la vita non vada sotto lo 0
 	else // Oppure
 	if (vita<=0) //Se la vita del giocatore è minore o uguale a 0
 		{
-	printf(dialogo4); //Diciamo al giocatore che ha perso
+		printf(dialogo29);	
+		printf(dialogo4); //Diciamo al giocatore che ha perso
+		system("pause");
+		exit(0);
 		}
-	}	
+		}	
 int danni() //Azione
 	{
 	srand(time(NULL));  // random 1
@@ -136,16 +145,17 @@ int danni() //Azione
     vita=vita-dannifin2; //dopo aver preso un attacco la tua vita scende
     printf(dialogo5); //output danni tuoi
     printf("%f\n", dannifin2);
+    controllavita();
     printf(dialogo27);
-    printf("%f\n", vita);
+    printf("%d\n", vita);
     danni1=rand()%100; //random 3
     dannifin1=danni1*atk2; //dannfin1 sono i danni che infliggi al nemico, e danni1 = danni1 calcolato sopra * l'atk tuo che per ora non può essere diminuito in alcun modo quindi resta 1
     vita2=vita2-dannifin1; //la vita del nemico diminuisce
     printf(dialogo6); //output danni del nemico
     printf("%f\n", dannifin1);
-    printf(dialogo28);
-    printf("%f\n", vita2);
     controllavita();
+    printf(dialogo28);
+    printf("%d\n", vita2);
 	}
 
 int prot() //Protezione
@@ -164,17 +174,18 @@ int zmove()
     vita=vita-dannifin2;  //dopo aver preso un attacco la tua vita scende
     printf(dialogo5); //output danni tuoi
     printf("%f\n", dannifin2);
+    controllavita();
     printf(dialogo27);
-    printf("%f\n", vita);
+    printf("%d\n", vita);
     danni1=rand()%345; //random 3
     dannifin1=danni1*atk2; //dannfin1 sono i danni che infliggi al nemico, e danni1 = danni1 calcolato sopra * l'atk tuo che per ora non può essere diminuito in alcun modo quindi resta 1
     vita2=vita2-dannifin1; //la vita del nemico diminuisce
     printf(dialogo6); //output danni del nemico
     printf("%f\n", dannifin1);
+    controllavita();
     printf(dialogo28);
-    printf("%f\n", vita2);
+    printf("%d\n", vita2);
    	z=1; //la mossa Z viene impostata come "già utilizzata" e la prossima volta non potrà essere utilizzata fino alla prossima battaglia o finchè non si chiude e riapre il gioco
-    controllavita();	
 	}
 
 int ruggito()
@@ -185,8 +196,9 @@ int ruggito()
    	vita=vita-dannifin2; //dopo aver preso un attacco la tua vita scende
    	printf(dialogo5); //output danni tuoi
    	printf("%f\t", dannifin2);
+   	controllavita();
    	printf(dialogo27);
-   	printf("%f\n", vita);
+   	printf("%d\n", vita);
     if (atk<=0.25) //L'attacco è minore o uguale di 0,25? Se sì:
    			{
     		printf(dialogo8); //Dì al giocatore che esso non può diminuire
