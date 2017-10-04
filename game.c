@@ -10,7 +10,7 @@ int scelta, danni1, danni2, scappa, x ,z=0; //Numeri interi che non servono effe
 int puntitot=0, sceltah, req, mossa, braciere, braciereimparato=0, teletrasporto, teletrasportoimparato=0, protezione, protezioneimparato=0; //Numeri interi per l'insegnamento mosse
 int lingua; //Lingua1
 char *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7,*dialogo8,*dialogo9,*dialogo10,*dialogo11,*dialogo12,*dialogo13,*dialogo14,*dialogo15,*dialogo16,*dialogo17,*dialogo18,*dialogo19,*dialogo20,*dialogo21,*dialogo22,*dialogo23,*dialogo24,*dialogo25,*dialogo26,*dialogo27; //Lingua2
-
+char nome;
 
 int checklang()
 	{
@@ -29,7 +29,7 @@ int checklang()
 				dialogo9="L'attacco del nemico e' ora di: ";
 				dialogo10="1: CONTINUA, 2: ESCI\n";
 				dialogo11="Cosa fai?\n1=COMBATTI, 2=IMPARA\n";
-				dialogo12="Appare un Pokemon\n";
+				dialogo12="Appare un Pokemon: ";
 				dialogo13="Che mossa usi? 1=AZIONE, 2=PROTEZIONE, 3=MOSSA Z, 4=RUGGITO, 5=PAUSA\n";
 				dialogo14="Hai gia' usato la Mossa Z!\n";
 				dialogo15="Che mossa vuoi imparare? 1=Braciere, 2=Teletrasporto, 3=Protezione\n";
@@ -51,28 +51,28 @@ int checklang()
 			{
 				dialogo1="Saving the game...\n";
 				dialogo2="An error occured while opening the file\n";
-				dialogo3="You won! Now, your skill points are:";
+				dialogo3="You won! Now, your money are:";
 				dialogo4="You lost...\n";
 				dialogo5="You took a damage of: ";
 				dialogo6="You inflicted a damage of: ";
-				dialogo7="You didn't take any damage, but you would have taken: ";
+				dialogo7="You don't take any damage, but you would have taken: ";
 				dialogo8="Its attack cannot be lowered!\n";
 				dialogo9="The attack stat of the enemy is now: ";
 				dialogo10="1: CONTINUE, 2: EXIT\n";
 				dialogo11="What do you want to do?\n1=FIGHT, 2=LEARN\n";
-				dialogo12="A wild Pokemon appears\n";
+				dialogo12="A wild Pokemon appears: ";
 				dialogo13="What move? 1=TACKLE, 2=PROTECT, 3=Z-MOVE, 4=GROWL, 5=PAUSE\n";
 				dialogo14="You 've already used a Z-Move!\n";
 				dialogo15="What move do you want to learn? 1=Ember, 2=Teleport, 3=Protect\n";
 				dialogo16="You wanna learn ember? It will cost this much (1=YES, 2=NO): ";
-				dialogo17="You learnt ember, now your skill points are: ";
+				dialogo17="You learnt ember, now your money are: ";
 				dialogo18="Wanna learn another move? 1=Yes, 2=No\n";
-				dialogo19="You don't have enough skill points\n";
+				dialogo19="You don't have enough money\n";
 				dialogo20="You already know ember\n";
 				dialogo21="You wanna learn teleport? It will cost this much (1=YES, 2=NO): ";
-				dialogo22="You learnt teleport, now your skill points are: ";
+				dialogo22="You learnt teleport, now your money are: ";
 				dialogo23="You wanna learn protect? It will cost this much (1=YES, 2=NO):";
-				dialogo24="You learnt protect, now your skill points are: ";
+				dialogo24="You learnt protect, now your money are: ";
 				dialogo25="You already know teleport\n";
 				dialogo26="You already know protect";
 				dialogo27="DebugEN";
@@ -188,6 +188,7 @@ main()  //funzione main
 	menu: //Label menu
 	carica(); //Richiamo della funzione carica
 	checklang();
+	nome=rand();
 	printf(dialogo10); //Prima scelta... Per le scelte avrei potuto usare uno switch case ma non avevo voglia
 	scanf("%d",&scelta); //Prende l'input da tastiera e lo inserisce in scelta; %d perchè è int
 	if (scelta==1) //La scelta è 1, ovvero continuare? Se sì:
@@ -201,6 +202,7 @@ main()  //funzione main
     	if (scelta==1) //La tua scelta è combattere? Se sì:
     		{
     		printf(dialogo12); //Scritta al giocatore che arriva il Pokémon
+    		printf("%c!\n", nome);
     		x=1;
     		for(x=1;x>0;x++) //Tutto quel che sta per accadere succede solamente se la vita del giocatore è maggiore (...o uguale? perchè ho messo l'uguale?) a zero
     			{
