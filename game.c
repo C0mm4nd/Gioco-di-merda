@@ -8,8 +8,8 @@ This program is under GPL v3.0 */
 float vita=1000, vita2=1000, dannifin1, dannifin2,atk=1,atk2=1; //Numeri con la virgola tipo la vita o le percentuali
 int scelta, danni1, danni2, scappa, x ,z=0; //Numeri interi che non servono effettivamente a una mazza
 int puntitot=0, sceltah, req, mossa, braciere, braciereimparato=0, teletrasporto, teletrasportoimparato=0, protezione, protezioneimparato=0; //Numeri interi per l'insegnamento mosse
-int lingua; //Lingua1
-char *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7,*dialogo8,*dialogo9,*dialogo10,*dialogo11,*dialogo12,*dialogo13,*dialogo14,*dialogo15,*dialogo16,*dialogo17,*dialogo18,*dialogo19,*dialogo20,*dialogo21,*dialogo22,*dialogo23,*dialogo24,*dialogo25,*dialogo26,*dialogo27; //Lingua2
+int lingua; //Lingua  parte 1
+char *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7,*dialogo8,*dialogo9,*dialogo10,*dialogo11,*dialogo12,*dialogo13,*dialogo14,*dialogo15,*dialogo16,*dialogo17,*dialogo18,*dialogo19,*dialogo20,*dialogo21,*dialogo22,*dialogo23,*dialogo24,*dialogo25,*dialogo26;//,*dialogo27; //Lingua parte 2
 char nome;
 
 int checklang()
@@ -44,7 +44,7 @@ int checklang()
 				dialogo24="Hai imparato protezione, e i tuoi punti abilità sono ora %d\n";
 				dialogo25="Conosci già teletrasporto\n";
 				dialogo26="Conosci già protezione\n";
-				dialogo27="DebugIT";
+				//dialogo27="DebugIT";
 			}
 		else
 		if(lingua==2)
@@ -75,7 +75,7 @@ int checklang()
 				dialogo24="You learnt protect, now your skill points are: ";
 				dialogo25="You already know teleport\n";
 				dialogo26="You already know protect";
-				dialogo27="DebugEN";
+				//dialogo27="DebugEN";
 			}
 		else
 		printf("Error, retry\n");
