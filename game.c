@@ -178,6 +178,7 @@ int zmove()
     printf(dialogo27);
     printf("%d\n", vita);
     danni1=rand()%251;
+    vita2=vita2-danni1;
     printf(dialogo6); //output danni del nemico
     printf("%f\n", danni1);
     controllavita();
