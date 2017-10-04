@@ -6,12 +6,8 @@ This program is under GPL v3.0 */
 #include <time.h> // solo per srand()
 
 float danni1, danni2, danniz, atk=1,atk2=1; //Numeri con la virgola tipo la vita o le percentuali
-int scelta, livello1, livello2, scappa, x ,z=0; //Numeri interi che non servono effettivamente a una mazza
-int puntitot=0, sceltah, req, mossa, braciere, braciereimparato=0, teletrasporto, teletrasportoimparato=0, protezione, protezioneimparato=0; //Numeri interi per l'insegnamento mosse
-int lingua; //Lingua  parte 1
-char *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7,*dialogo8,*dialogo9,*dialogo10,*dialogo11,*dialogo12,*dialogo13,*dialogo14,*dialogo15,*dialogo16,*dialogo17,*dialogo18,*dialogo19,*dialogo20,*dialogo21,*dialogo22,*dialogo23,*dialogo24,*dialogo25,*dialogo26,*dialogo27,*dialogo28,*dialogo29,*dialogo30;//,*dialogo31 //Lingua parte 2
-char nome;
-int vita, vita2;
+int scelta, vita, vita2, livello1, livello2, scappa, x ,z=0, puntitot=0, sceltah, req, mossa, braciere, braciereimparato=0, teletrasporto, teletrasportoimparato=0, protezione, protezioneimparato=0, lingua; //Numeri interi che non servono effettivamente a una mazza e numeri interi per l'insegnamento mosse
+char nome, *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7,*dialogo8,*dialogo9,*dialogo10,*dialogo11,*dialogo12,*dialogo13,*dialogo14,*dialogo15,*dialogo16,*dialogo17,*dialogo18,*dialogo19,*dialogo20,*dialogo21,*dialogo22,*dialogo23,*dialogo24,*dialogo25,*dialogo26,*dialogo27,*dialogo28,*dialogo29,*dialogo30;//,*dialogo31 //Lingua parte 2
 
 int checklang()
 	{
