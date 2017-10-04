@@ -12,11 +12,9 @@ Lo sviluppo di questo gioco è molto lento. Non ti aspettare dei rilasci in brev
 
 TODO:
 
-1) Fixare gli attacchi
+1) Migliorare il sistema di livelli
 
-2) Introdurre un sistema di livelli
-
-3) Far funzionare l'insegnamento delle mosse (quest'ultima non sarà fatta a breve)
+2) Far funzionare l'insegnamento delle mosse (quest'ultima non sarà fatta a breve)
 
 EN:
 
@@ -30,8 +28,6 @@ The development of this game is very slow. Don't expect releases in a short time
 
 TODO:
 
-1) Fix the attack damage
+1) Improve the leveling system
 
-2) Introduce a leveling system
-
-3) Make the learning system work (this one will not be made anytime soon)
+2) Make the learning system work (this one will not be made anytime soon)
