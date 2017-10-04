@@ -5,13 +5,13 @@ This program is under GPL v3.0 */
 #include <stdlib.h> // serve
 #include <time.h> // solo per srand()
 
-float dannifin1, dannifin2,atk=1,atk2=1; //Numeri con la virgola tipo la vita o le percentuali
-int vita, vita2; //Unsigned int = numeri interi senza segno
-int scelta, danni1, danni2, livello1, livello2, scappa, x ,z=0; //Numeri interi che non servono effettivamente a una mazza
+float danni1, danni2, danniz, atk=1,atk2=1; //Numeri con la virgola tipo la vita o le percentuali
+int scelta, livello1, livello2, scappa, x ,z=0; //Numeri interi che non servono effettivamente a una mazza
 int puntitot=0, sceltah, req, mossa, braciere, braciereimparato=0, teletrasporto, teletrasportoimparato=0, protezione, protezioneimparato=0; //Numeri interi per l'insegnamento mosse
 int lingua; //Lingua  parte 1
 char *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7,*dialogo8,*dialogo9,*dialogo10,*dialogo11,*dialogo12,*dialogo13,*dialogo14,*dialogo15,*dialogo16,*dialogo17,*dialogo18,*dialogo19,*dialogo20,*dialogo21,*dialogo22,*dialogo23,*dialogo24,*dialogo25,*dialogo26,*dialogo27,*dialogo28,*dialogo29,*dialogo30;//,*dialogo31 //Lingua parte 2
 char nome;
+int vita, vita2;
 
 int checklang()
 	{
@@ -139,50 +139,51 @@ int controllavita() //Funzione che controlla che la vita non vada sotto lo 0
 		exit(0);
 		}
 		}	
+		
+int atknemico(){
+danni2=(rand()%100*atk)+livello2;
+vita=vita-danni2;
+}
+
+int atkplayer(){
+danni1=(rand()%100*atk2)+livello1;
+vita2=vita2-danni1;
+}
+
 int danni() //Azione
 	{
-    danni2=rand()%100; //random 2
-    dannifin2=livello2+danni2*atk; //dannifin2 sono i danni tuoi, e dannifin2 = danni2 calcolato appena sopra * l'atk del nemico il quale può essere diminuito da ruggito
-    vita=vita-dannifin2; //dopo aver preso un attacco la tua vita scende
-    printf(dialogo5); //output danni tuoi
-    printf("%f\n", dannifin2);
-    controllavita();
-    printf(dialogo27);
-    printf("%d\n", vita);
-    danni1=rand()%100; //random 3
-    dannifin1=livello1+danni1*atk2; //dannfin1 sono i danni che infliggi al nemico, e danni1 = danni1 calcolato sopra * l'atk tuo che per ora non può essere diminuito in alcun modo quindi resta 1
-    vita2=vita2-dannifin1; //la vita del nemico diminuisce
-    printf(dialogo6); //output danni del nemico
-    printf("%f\n", dannifin1);
-    printf("Debug, %d, %d", livello1, livello2);
-    controllavita();
-    printf(dialogo28);
-    printf("%d\n", vita2);
+atknemico();
+printf(dialogo5);
+printf("%f\n", danni2);
+controllavita();
+printf(dialogo27);
+printf("%d\n", vita);
+atkplayer();
+printf(dialogo6);
+printf("%f\n", danni1);
+controllavita();
+printf(dialogo28);
+printf("%d\n", vita2);
 	}
 
 int prot() //Protezione
 	{
-	danni2=rand()%100; //random 2
-	dannifin2=livello2+danni2*atk; //calcolo dei danni che staresti per subire
+	atknemico();
     printf(dialogo7); //output dei danni tuoi ma non subisci niente
-    printf("\n%f\n", dannifin2);
+    printf("\n%f\n", danni2);
 	}
 	
 int zmove()
 	{
-    danni2=rand()%100; //random 
-    dannifin2=livello2+danni2*atk; //dannifin2 sono i danni tuoi, e dannifin2 = danni2 calcolato appena sopra * l'atk del nemico il quale può essere diminuito da ruggito
-    vita=vita-dannifin2;  //dopo aver preso un attacco la tua vita scende
+    atknemico();
     printf(dialogo5); //output danni tuoi
-    printf("%f\n", dannifin2);
+    printf("%f\n", danni2);
     controllavita();
     printf(dialogo27);
     printf("%d\n", vita);
-    danni1=(rand()%345)+100; //random 3
-    dannifin1=livello1+danni1*atk2; //dannfin1 sono i danni che infliggi al nemico, e danni1 = danni1 calcolato sopra * l'atk tuo che per ora non può essere diminuito in alcun modo quindi resta 1
-    vita2=vita2-dannifin1; //la vita del nemico diminuisce
+    danni1=rand()%251;
     printf(dialogo6); //output danni del nemico
-    printf("%f\n", dannifin1);
+    printf("%f\n", danni1);
     controllavita();
     printf(dialogo28);
     printf("%d\n", vita2);
@@ -191,15 +192,13 @@ int zmove()
 
 int ruggito()
 	{
-    danni2=rand()%100; //random 2
-   	dannifin2=livello2+danni2*atk; //dannifin2 sono i danni tuoi, e dannifin2 = danni2 calcolato appena sopra * l'atk del nemico il quale può essere diminuito da ruggito
-   	vita=vita-dannifin2; //dopo aver preso un attacco la tua vita scende
+    atknemico();
    	printf(dialogo5); //output danni tuoi
-   	printf("%f\t", dannifin2);
+   	printf("%f\t", danni2);
    	controllavita();
    	printf(dialogo27);
    	printf("%d\n", vita);
-    if (atk<=0.25) //L'attacco è minore o uguale di 0,25? Se sì:
+    if (atk==0.25) //L'attacco è  uguale a 0,25? Se sì:
    			{
     		printf(dialogo8); //Dì al giocatore che esso non può diminuire
 			}
