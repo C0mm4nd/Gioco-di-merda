@@ -5,11 +5,11 @@ This program is under GPL v3.0 */
 #include <stdlib.h> // serve
 #include <time.h> // solo per srand()
 
-float vita=1000, vita2=1000, dannifin1, dannifin2,atk=1,atk2=1; //Numeri con la virgola tipo la vita o le percentuali
+float vita, vita2, dannifin1, dannifin2,atk=1,atk2=1; //Numeri con la virgola tipo la vita o le percentuali
 int scelta, danni1, danni2, scappa, x ,z=0; //Numeri interi che non servono effettivamente a una mazza
 int puntitot=0, sceltah, req, mossa, braciere, braciereimparato=0, teletrasporto, teletrasportoimparato=0, protezione, protezioneimparato=0; //Numeri interi per l'insegnamento mosse
 int lingua; //Lingua  parte 1
-char *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7,*dialogo8,*dialogo9,*dialogo10,*dialogo11,*dialogo12,*dialogo13,*dialogo14,*dialogo15,*dialogo16,*dialogo17,*dialogo18,*dialogo19,*dialogo20,*dialogo21,*dialogo22,*dialogo23,*dialogo24,*dialogo25,*dialogo26;//,*dialogo27; //Lingua parte 2
+char *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7,*dialogo8,*dialogo9,*dialogo10,*dialogo11,*dialogo12,*dialogo13,*dialogo14,*dialogo15,*dialogo16,*dialogo17,*dialogo18,*dialogo19,*dialogo20,*dialogo21,*dialogo22,*dialogo23,*dialogo24,*dialogo25,*dialogo26,*dialogo27,*dialogo28,*dialogo29; //Lingua parte 2
 char nome;
 
 int checklang()
@@ -44,7 +44,9 @@ int checklang()
 				dialogo24="Hai imparato protezione, e i tuoi punti abilità sono ora %d\n";
 				dialogo25="Conosci già teletrasporto\n";
 				dialogo26="Conosci già protezione\n";
-				//dialogo27="DebugIT";
+				dialogo27="La tua vita è ora: ";
+				dialogo28="La vita dell'avversario è ora: ";
+				//dialogo29="DebugIT";
 			}
 		else
 		if(lingua==2)
@@ -75,7 +77,9 @@ int checklang()
 				dialogo24="You learnt protect, now your skill points are: ";
 				dialogo25="You already know teleport\n";
 				dialogo26="You already know protect";
-				//dialogo27="DebugEN";
+				dialogo27="Your health is now: ";
+				dialogo28="The opponent's health is now: ";
+				//dialogo29="DebugEN";
 			}
 		else
 		printf("Error, retry\n");
@@ -83,7 +87,7 @@ int checklang()
 
 int rigenerazione() //Funzione di rigenerazione
 	{
-	float vita=1000, vita2=1000, atk=1,atk2=1; //Porta le variabili come all'inizio
+	vita=(rand()%1000)+puntitot, vita2=rand()%1000, atk=1,atk2=1; //Porta le variabili come all'inizio
 	int z=0; //Idem
 	}
 	
@@ -131,12 +135,16 @@ int danni() //Azione
     dannifin2=danni2*atk; //dannifin2 sono i danni tuoi, e dannifin2 = danni2 calcolato appena sopra * l'atk del nemico il quale può essere diminuito da ruggito
     vita=vita-dannifin2; //dopo aver preso un attacco la tua vita scende
     printf(dialogo5); //output danni tuoi
-    printf("\n%f\n", dannifin2);
+    printf("%f\n", dannifin2);
+    printf(dialogo27);
+    printf("%f\n", vita);
     danni1=rand()%100; //random 3
     dannifin1=danni1*atk2; //dannfin1 sono i danni che infliggi al nemico, e danni1 = danni1 calcolato sopra * l'atk tuo che per ora non può essere diminuito in alcun modo quindi resta 1
     vita2=vita2-dannifin1; //la vita del nemico diminuisce
     printf(dialogo6); //output danni del nemico
-    printf("\n%f\n", dannifin1);
+    printf("%f\n", dannifin1);
+    printf(dialogo28);
+    printf("%f\n", vita2);
     controllavita();
 	}
 
@@ -155,12 +163,16 @@ int zmove()
     dannifin2=danni2*atk; //dannifin2 sono i danni tuoi, e dannifin2 = danni2 calcolato appena sopra * l'atk del nemico il quale può essere diminuito da ruggito
     vita=vita-dannifin2;  //dopo aver preso un attacco la tua vita scende
     printf(dialogo5); //output danni tuoi
-    printf("\n%f\n", dannifin2);
+    printf("%f\n", dannifin2);
+    printf(dialogo27);
+    printf("%f\n", vita);
     danni1=rand()%345; //random 3
     dannifin1=danni1*atk2; //dannfin1 sono i danni che infliggi al nemico, e danni1 = danni1 calcolato sopra * l'atk tuo che per ora non può essere diminuito in alcun modo quindi resta 1
     vita2=vita2-dannifin1; //la vita del nemico diminuisce
     printf(dialogo6); //output danni del nemico
-    printf("\n%f\n", dannifin1);
+    printf("%f\n", dannifin1);
+    printf(dialogo28);
+    printf("%f\n", vita2);
    	z=1; //la mossa Z viene impostata come "già utilizzata" e la prossima volta non potrà essere utilizzata fino alla prossima battaglia o finchè non si chiude e riapre il gioco
     controllavita();	
 	}
@@ -172,7 +184,9 @@ int ruggito()
    	dannifin2=danni2*atk; //dannifin2 sono i danni tuoi, e dannifin2 = danni2 calcolato appena sopra * l'atk del nemico il quale può essere diminuito da ruggito
    	vita=vita-dannifin2; //dopo aver preso un attacco la tua vita scende
    	printf(dialogo5); //output danni tuoi
-   	printf("\n%f\n", dannifin2);
+   	printf("%f\t", dannifin2);
+   	printf(dialogo27);
+   	printf("%f\n", vita);
     if (atk<=0.25) //L'attacco è minore o uguale di 0,25? Se sì:
    			{
     		printf(dialogo8); //Dì al giocatore che esso non può diminuire
@@ -180,7 +194,7 @@ int ruggito()
 	else //Se non è minore o uguale a 0,25, invece:
    	atk=atk-0.25; //L'attacco (che di default è 1) diminuisce di 0,25
     printf(dialogo9); //Il giocatore viene informato del fatto che l'attacco del nemico è sceso
-    printf("\n%f\n", atk);
+    printf("%f\n", atk);
 	}
 
 main()  //funzione main
