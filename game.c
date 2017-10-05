@@ -11,77 +11,77 @@ char nome, *dialogo1,*dialogo2,*dialogo3,*dialogo4,*dialogo5,*dialogo6,*dialogo7
 
 int checklang()
 	{
-		printf("Language/Lingua? 1=ITA, 2=ENG\n");
-		scanf("%d", &lingua);
-		if(lingua==1)
-			{
-				dialogo1="\nSalvataggio in corso... Il file di salvataggio è situato nella cartella del gioco\n";
-				dialogo2="\nErrore in apertura del file\n";
-				dialogo3="\nHai vinto! I tuoi punti abilità sono ora";
-				dialogo4="\nHai perso...\n";
-				dialogo5="Hai subito dei danni di: ";
-				dialogo6="Hai inflitto dei danni di: ";
-				dialogo7="Non subisci nulla, avresti subito dei danni di: ";
-				dialogo8="Il suo attacco non puo' diminuire!\n";
-				dialogo9="L'attacco del nemico e' ora di: ";
-				dialogo10="1: CONTINUA, 2: ESCI\n";
-				dialogo11="Cosa fai?\n1=COMBATTI, 2=IMPARA\n";
-				dialogo12="Appare un Pokemon: ";
-				dialogo13="Che mossa usi? 1=AZIONE, 2=PROTEZIONE, 3=MOSSA Z, 4=RUGGITO, 5=PAUSA\n";
-				dialogo14="Hai gia' usato la Mossa Z!\n";
-				dialogo15="Che mossa vuoi imparare? 1=Braciere, 2=Teletrasporto, 3=Protezione\n";
-				dialogo16="Vuoi imparare braciere? Ti serviranno questi punti abilità (1=SI, 2=NO): ";
-				dialogo17="Hai imparato Braciere, e i tuoi punti abilità sono ora: ";
-				dialogo18="Vuoi imparare un'altra mossa? 1=Sì, 2=No\n";
-				dialogo19="Non hai abbastanza punti abilità\n";
-				dialogo20="Conosci già braciere\n";
-				dialogo21="Vuoi imparare teletrasporto? Ti serviranno %d punti abilità 1=Sì, 2=No\n";
-				dialogo22="Hai imparato teletrasporto, e i tuoi punti abilità sono ora %d\n";
-				dialogo23="Vuoi imparare protezione? Ti serviranno %d punti abilità 1=Sì, 2=No\n";
-				dialogo24="Hai imparato protezione, e i tuoi punti abilità sono ora %d\n";
-				dialogo25="Conosci già teletrasporto\n";
-				dialogo26="Conosci già protezione\n";
-				dialogo27="La tua vita è ora: ";
-				dialogo28="La vita dell'avversario è ora: ";
-				dialogo29="La tua vita è scesa a zero!";
-				dialogo30="La vita dell'avversario è scesa a zero!";
-				//dialogo31="DebugIT";
-			}
-		else
-		if(lingua==2)
-			{
-				dialogo1="\nSaving the game... The save file is located in the directory of the game\n";
-				dialogo2="\nAn error occured while opening the file\n";
-				dialogo3="\nYou won! Now, your skill points are:";
-				dialogo4="You lost...\n";
-				dialogo5="You took a damage of: ";
-				dialogo6="You inflicted a damage of: ";
-				dialogo7="You didn't take any damage, but you would have taken: ";
-				dialogo8="Its attack cannot be lowered!\n";
-				dialogo9="The attack stat of the enemy is now: ";
-				dialogo10="1: CONTINUE, 2: EXIT\n";
-				dialogo11="What do you want to do?\n1=FIGHT, 2=LEARN\n";
-				dialogo12="A wild Pokemon appears: ";
-				dialogo13="What move? 1=TACKLE, 2=PROTECT, 3=Z-MOVE, 4=GROWL, 5=PAUSE\n";
-				dialogo14="You 've already used a Z-Move!\n";
-				dialogo15="What move do you want to learn? 1=Ember, 2=Teleport, 3=Protect\n";
-				dialogo16="You wanna learn ember? It will cost this much (1=YES, 2=NO): ";
-				dialogo17="You learnt ember, now your skill points are: ";
-				dialogo18="Wanna learn another move? 1=Yes, 2=No\n";
-				dialogo19="You don't have enough skill points\n";
-				dialogo20="You already know ember\n";
-				dialogo21="You wanna learn teleport? It will cost this much (1=YES, 2=NO): ";
-				dialogo22="You learnt teleport, now your skill points are: ";
-				dialogo23="You wanna learn protect? It will cost this much (1=YES, 2=NO):";
-				dialogo24="You learnt protect, now your skill points are: ";
-				dialogo25="You already know teleport\n";
-				dialogo26="You already know protect";
-				dialogo27="Your health is now: ";
-				dialogo28="The opponent's health is now: ";
-				dialogo29="Your health is now zero!";
-				dialogo30="The opponent's health is now zero!";
-				//dialogo31="DebugEN";
-			}
+	printf("Language/Lingua? 1=ITA, 2=ENG\n");
+	scanf("%d", &lingua);
+	if(lingua==1)
+		{
+		dialogo1="\nSalvataggio in corso... Il file di salvataggio è situato nella cartella del gioco\n";
+		dialogo2="\nErrore in apertura del file\n";
+		dialogo3="\nHai vinto! I tuoi punti abilità sono ora";
+		dialogo4="\nHai perso...\n";
+		dialogo5="Hai subito dei danni di: ";
+		dialogo6="Hai inflitto dei danni di: ";
+		dialogo7="Non subisci nulla, avresti subito dei danni di: ";
+		dialogo8="Il suo attacco non puo' diminuire!\n";
+		dialogo9="L'attacco del nemico e' ora di: ";
+		dialogo10="1: CONTINUA, 2: ESCI\n";
+		dialogo11="Cosa fai?\n1=COMBATTI, 2=IMPARA\n";
+		dialogo12="Appare un Pokemon: ";
+		dialogo13="Che mossa usi? 1=AZIONE, 2=PROTEZIONE, 3=MOSSA Z, 4=RUGGITO, 5=PAUSA\n";
+		dialogo14="Hai gia' usato la Mossa Z!\n";
+		dialogo15="Che mossa vuoi imparare? 1=Braciere, 2=Teletrasporto, 3=Protezione\n";
+		dialogo16="Vuoi imparare braciere? Ti serviranno questi punti abilità (1=SI, 2=NO): ";
+		dialogo17="Hai imparato Braciere, e i tuoi punti abilità sono ora: ";
+		dialogo18="Vuoi imparare un'altra mossa? 1=Sì, 2=No\n";
+		dialogo19="Non hai abbastanza punti abilità\n";
+		dialogo20="Conosci già braciere\n";
+		dialogo21="Vuoi imparare teletrasporto? Ti serviranno %d punti abilità 1=Sì, 2=No\n";
+		dialogo22="Hai imparato teletrasporto, e i tuoi punti abilità sono ora %d\n";
+		dialogo23="Vuoi imparare protezione? Ti serviranno %d punti abilità 1=Sì, 2=No\n";
+		dialogo24="Hai imparato protezione, e i tuoi punti abilità sono ora %d\n";
+		dialogo25="Conosci già teletrasporto\n";
+		dialogo26="Conosci già protezione\n";
+		dialogo27="La tua vita è ora: ";
+		dialogo28="La vita dell'avversario è ora: ";
+		dialogo29="La tua vita è scesa a zero!";
+		dialogo30="La vita dell'avversario è scesa a zero!";
+		//dialogo31="DebugIT";
+		}
+	else
+	if(lingua==2)
+		{
+		dialogo1="\nSaving the game... The save file is located in the directory of the game\n";
+		dialogo2="\nAn error occured while opening the file\n";
+		dialogo3="\nYou won! Now, your skill points are:";
+		dialogo4="You lost...\n";
+		dialogo5="You took a damage of: ";
+		dialogo6="You inflicted a damage of: ";
+		dialogo7="You didn't take any damage, but you would have taken: ";
+		dialogo8="Its attack cannot be lowered!\n";
+		dialogo9="The attack stat of the enemy is now: ";
+		dialogo10="1: CONTINUE, 2: EXIT\n";
+		dialogo11="What do you want to do?\n1=FIGHT, 2=LEARN\n";
+		dialogo12="A wild Pokemon appears: ";
+		dialogo13="What move? 1=TACKLE, 2=PROTECT, 3=Z-MOVE, 4=GROWL, 5=PAUSE\n";
+		dialogo14="You 've already used a Z-Move!\n";
+		dialogo15="What move do you want to learn? 1=Ember, 2=Teleport, 3=Protect\n";
+		dialogo16="You wanna learn ember? It will cost this much (1=YES, 2=NO): ";
+		dialogo17="You learnt ember, now your skill points are: ";
+		dialogo18="Wanna learn another move? 1=Yes, 2=No\n";
+		dialogo19="You don't have enough skill points\n";
+		dialogo20="You already know ember\n";
+		dialogo21="You wanna learn teleport? It will cost this much (1=YES, 2=NO): ";
+		dialogo22="You learnt teleport, now your skill points are: ";
+		dialogo23="You wanna learn protect? It will cost this much (1=YES, 2=NO):";
+		dialogo24="You learnt protect, now your skill points are: ";
+		dialogo25="You already know teleport\n";
+		dialogo26="You already know protect";
+		dialogo27="Your health is now: ";
+		dialogo28="The opponent's health is now: ";
+		dialogo29="Your health is now zero!";
+		dialogo30="The opponent's health is now zero!";
+		//dialogo31="DebugEN";
+		}
 		else
 		printf("Errore, riprova/Error, retry\n");
 	}
@@ -100,9 +100,9 @@ int salva() //Funzione del salvataggio
 	FILE *fd; // Dice al programma che stiamo avendo a che fare con un file
 	fd=fopen("salvataggio.txt", "w"); //Apre salvataggio.txt in scrittura
 	if( fd==NULL ) //Se ci sono errori nella apertura del file
-				   {
-    perror(dialogo2); //Dillo al giocatore
-  				   }		
+		{
+    	perror(dialogo2); //Dillo al giocatore
+  		}		
 	fprintf(fd, "\n%d\n", puntitot); //Scriviamo il valore corrispondente a puntitot nel file di prima, salvataggio.txt
 	system("pause"); // Pauso il sistema
 	exit(0);
@@ -134,32 +134,34 @@ int controllavita() //Funzione che controlla che la vita non vada sotto lo 0
 		system("pause");
 		exit(0);
 		}
-		}	
+	}	
 		
-int atknemico(){
-danni2=(rand()%100*atk)+livello2;
-vita=vita-danni2;
-}
+int atknemico()
+	{
+	danni2=(rand()%100*atk)+livello2;
+	vita=vita-danni2;
+	}
 
-int atkplayer(){
-danni1=(rand()%100*atk2)+livello1;
-vita2=vita2-danni1;
-}
+int atkplayer()
+	{
+	danni1=(rand()%100*atk2)+livello1;
+	vita2=vita2-danni1;
+	}
 
 int danni() //Azione
 	{
-atknemico();
-printf(dialogo5);
-printf("%f\n", danni2);
-controllavita();
-printf(dialogo27);
-printf("%d\n", vita);
-atkplayer();
-printf(dialogo6);
-printf("%f\n", danni1);
-controllavita();
-printf(dialogo28);
-printf("%d\n", vita2);
+	atknemico();
+	printf(dialogo5);
+	printf("%f\n", danni2);
+	controllavita();
+	printf(dialogo27);
+	printf("%d\n", vita);
+	atkplayer();
+	printf(dialogo6);
+	printf("%f\n", danni1);
+	controllavita();
+	printf(dialogo28);
+	printf("%d\n", vita2);
 	}
 
 int prot() //Protezione
@@ -196,13 +198,15 @@ int ruggito()
    	printf(dialogo27);
    	printf("%d\n", vita);
     if (atk==0.25) //L'attacco è  uguale a 0,25? Se sì:
-   			{
-    		printf(dialogo8); //Dì al giocatore che esso non può diminuire
-			}
+   		{
+    	printf(dialogo8); //Dì al giocatore che esso non può diminuire
+		}
 	else //Se non è minore o uguale a 0,25, invece:
-   	atk=atk-0.25; //L'attacco (che di default è 1) diminuisce di 0,25
-    printf(dialogo9); //Il giocatore viene informato del fatto che l'attacco del nemico è sceso
-    printf("%f\n", atk);
+		{
+		atk=atk-0.25; //L'attacco (che di default è 1) diminuisce di 0,25
+    	printf(dialogo9); //Il giocatore viene informato del fatto che l'attacco del nemico è sceso
+    	printf("%f\n", atk);
+		}
 	}
 
 main()  //funzione main
