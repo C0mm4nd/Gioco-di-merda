@@ -83,7 +83,7 @@ int checklang()
 				//dialogo31="DebugEN";
 			}
 		else
-		printf("Error, retry\n");
+		printf("Errore, riprova/Error, retry\n");
 	}
 
 int rigenerazione() //Funzione di rigenerazione
