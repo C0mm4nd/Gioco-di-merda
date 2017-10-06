@@ -1,4 +1,4 @@
-/* Copyright © 2017 (Volca)
+/* Copyright © 2017 (Volca (Game developer)
 This program is under GPL v3.0 */
 
 #include <stdio.h> // serve
