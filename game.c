@@ -91,7 +91,7 @@ int rigenerazione() //Funzione di rigenerazione
 	livello1=puntitot/2;
 	livello2=livello1+rand()%10;
 	vita=(rand()%1000), vita2=rand()%1000, atk=1,atk2=1; //Porta le variabili come all'inizio
-	int z=0; //Idem
+	z=0; //Idem
 	}
 	
 int salva() //Funzione del salvataggio
