@@ -1,0 +1,30 @@
+\nSalvataggio in corso... Il file di salvataggio è situato nella cartella del gioco\n
+\nErrore in apertura del file\n
+\nHai vinto! I tuoi punti abilità sono ora
+\nHai perso...\n
+Hai subito dei danni di: 
+Hai inflitto dei danni di: 
+Non subisci nulla, avresti subito dei danni di: 
+Il suo attacco non puo' diminuire!\n
+L'attacco del nemico e' ora di: 
+1: CONTINUA, 2: ESCI\n
+Cosa fai?\n1=COMBATTI, 2=IMPARA\n
+Appare un Pokemon: 
+Che mossa usi? 1=AZIONE, 2=PROTEZIONE, 3=MOSSA Z, 4=RUGGITO, 5=PAUSA\n
+Hai gia' usato la Mossa Z!\n
+Che mossa vuoi imparare? 1=Braciere, 2=Teletrasporto, 3=Protezione\n
+Vuoi imparare braciere? Ti serviranno questi punti abilità (1=SI, 2=NO): 
+Hai imparato Braciere, e i tuoi punti abilità sono ora: 
+Vuoi imparare un'altra mossa? 1=Sì, 2=No\n
+Non hai abbastanza punti abilità\n
+Conosci già braciere\n
+Vuoi imparare teletrasporto? Ti serviranno %d punti abilità 1=Sì, 2=No\n
+Hai imparato teletrasporto, e i tuoi punti abilità sono ora %d\n
+Vuoi imparare protezione? Ti serviranno %d punti abilità 1=Sì, 2=No\n
+Hai imparato protezione, e i tuoi punti abilità sono ora %d\n
+Conosci già teletrasporto\n
+Conosci già protezione\n
+La tua vita è ora: 
+La vita dell'avversario è ora: 
+La tua vita è scesa a zero!
+La vita dell'avversario è scesa a zero!
