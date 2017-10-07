@@ -6,11 +6,11 @@ This program is under GPL v3.0 */
 #include <time.h> // solo per srand()
 
 float atk=1,atk2=1; //Numeri con la virgola tipo la vita o le percentuali
-float danni[3];
+float danni[2];
 int scelta, vita, vita2, livello1, livello2, scappa, x ,z=0, puntitot=0, sceltah, req, mossa, braciere, braciereimparato=0, teletrasporto, teletrasportoimparato=0, protezione, protezioneimparato=0, lingua; //Numeri interi che non servono effettivamente a una mazza e numeri interi per l'insegnamento mosse
 char nome;
 
-char* dialogo[30]
+char* dialogo[30];
 
 int checklang()
 	{
@@ -48,7 +48,7 @@ int checklang()
 		dialogo[27]="La vita dell'avversario è ora: ";
 		dialogo[28]="La tua vita è scesa a zero!";
 		dialogo[29]="La vita dell'avversario è scesa a zero!";
-		//dialogo31="DebugIT";
+		//dialogo30="DebugIT";
 		}
 	else
 	if(lingua==2)
@@ -65,9 +65,9 @@ int checklang()
 		dialogo[9]="1: CONTINUE, 2: EXIT\n";
 		dialogo[10]="What do you want to do?\n1=FIGHT, 2=LEARN\n";
 		dialogo[11]="A wild Pokemon appears: ";
-		dialogo[13]="What move? 1=TACKLE, 2=PROTECT, 3=Z-MOVE, 4=GROWL, 5=PAUSE\n";
-		dialogo[14]="You 've already used a Z-Move!\n";
-		dialogo[15]="What move do you want to learn? 1=Ember, 2=Teleport, 3=Protect\n";
+		dialogo[12]="What move? 1=TACKLE, 2=PROTECT, 3=Z-MOVE, 4=GROWL, 5=PAUSE\n";
+		dialogo[13]="You 've already used a Z-Move!\n";
+		dialogo[14]="What move do you want to learn? 1=Ember, 2=Teleport, 3=Protect\n";
 		dialogo[15]="You wanna learn ember? It will cost this much (1=YES, 2=NO): ";
 		dialogo[16]="You learnt ember, now your skill points are: ";
 		dialogo[17]="Wanna learn another move? 1=Yes, 2=No\n";
@@ -83,7 +83,7 @@ int checklang()
 		dialogo[27]="The opponent's health is now: ";
 		dialogo[28]="Your health is now zero!";
 		dialogo[29]="The opponent's health is now zero!";
-		//dialogo31="DebugEN";
+		//dialogo30="DebugEN";
 		}
 		else
 		printf("Errore, riprova/Error, retry\n");
@@ -151,7 +151,7 @@ int atkplayer()
 	vita2=vita2-danni[0];
 	}
 
-int danni() //Azione
+int azione() //Azione
 	{
 	atknemico();
 	printf(dialogo[4]);
@@ -236,12 +236,12 @@ main()  //funzione main
     		x=1;
     		for(x=1;x>0;x++) //Tutto quel che sta per accadere succede solamente se la vita del giocatore è maggiore (...o uguale? perchè ho messo l'uguale?) a zero
     			{
-    			printf(dialogo[13]); //terza scelta
+    			printf(dialogo[12]); //terza scelta
     			scelta=0; //riciclo variabile, ancora
     			scanf("%d",&scelta); //Prende l'input da tastiera e lo inserisce in scelta; %d perchè è int
     			if (scelta==1) //Se la tua scelta è azione
     				{ // allora, 
-    				danni(); //esegui la funzione danni
+    				azione(); //esegui la funzione danni
 					}
 				else //sennò
 				if(scelta==2) //se la tua scelta è protezione
@@ -256,7 +256,7 @@ main()  //funzione main
 						zmove(); //se non è già stata usata, chiama la funzione della mossa z
 						}
            		 	else //se la mossa z è già stata utilizzata
-           	 		printf(dialogo[14]); //dì al giocatore che l'ha già usata
+           	 		printf(dialogo[13]); //dì al giocatore che l'ha già usata
 					}
 				else //sennò
 				if (scelta==4) //se la tua scelta è ruggito
@@ -272,7 +272,7 @@ main()  //funzione main
 		if (scelta==2) //la tua scelta è fuggire
 			{
 			imparo: //Label d'inizio dell'insegnamento mosse
-			printf(dialogo[15]); //Chiediamo al giocatore che mossa vuole imparare, i nomi sono a caso
+			printf(dialogo[14]); //Chiediamo al giocatore che mossa vuole imparare, i nomi sono a caso
 			scanf("%d", &mossa); // Input da tastiera
 			switch(mossa) //Se la variabile mossa
 				{
