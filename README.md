@@ -1,6 +1,6 @@
 # Gioco-di-merda
 
-##IT:
+##IT:##
 
 Gioco basato su Pokémon che per ora non ha praticamente nulla, neanche la grafica, ma magari in futuro la inserirò
 
@@ -16,7 +16,7 @@ TODO:
 
 2) Far funzionare l'insegnamento delle mosse (quest'ultima non sarà fatta a breve)
 
-##EN:
+##EN:##
 
 Game based on Pokémon which has nothing for now, not even graphics, but maybe I'll add it in the future
 
