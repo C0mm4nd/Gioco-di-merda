@@ -1,0 +1,30 @@
+\nSaving the game... The save file is located in the directory of the game\n
+\nAn error occured while opening the file\n
+\nYou won! Now, your skill points are:
+You lost...\n
+You took a damage of: 
+You inflicted a damage of: 
+You didn't take any damage, but you would have taken: 
+Its attack cannot be lowered!\n
+The attack stat of the enemy is now: 
+1: CONTINUE, 2: EXIT\n
+What do you want to do?\n1=FIGHT, 2=LEARN\n
+A wild Pokemon appears: 
+What move? 1=TACKLE, 2=PROTECT, 3=Z-MOVE, 4=GROWL, 5=PAUSE\n
+You 've already used a Z-Move!\n
+What move do you want to learn? 1=Ember, 2=Teleport, 3=Protect\n
+1You wanna learn ember? It will cost this much (1=YES, 2=NO): 
+You learnt ember, now your skill points are: 
+Wanna learn another move? 1=Yes, 2=No\n
+You don't have enough skill points\n
+You already know ember\n
+You wanna learn teleport? It will cost this much (1=YES, 2=NO): 
+You learnt teleport, now your skill points are: 
+You wanna learn protect? It will cost this much (1=YES, 2=NO):
+You learnt protect, now your skill points are: 
+You already know teleport\n
+You already know protect
+Your health is now: 
+The opponent's health is now: 
+Your health is now zero!
+The opponent's health is now zero!
