@@ -52,6 +52,7 @@ int checklang()
 				printf("Rip :(");
 			}
 			for(int i = 0; i < 30; i++){
+				dialogo[i] = malloc(sizeof(i18n_dialogo));
 				if(fgets(buf, 128, fh) != NULL){
 					strcpy(dialogo[i].dialogoIT, buf);
 				} else {
