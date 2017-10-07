@@ -10,7 +10,7 @@ La funzione dell'insegnamento delle nuove mosse è ancora in lavorazione quindi 
 
 Lo sviluppo di questo gioco è molto lento. Non ti aspettare dei rilasci in breve tempo.
 
-TODO:
+### TODO:
 
 1) Migliorare il sistema di livelli
 
@@ -26,7 +26,7 @@ The learning function is still a work in progress, that is why it does not work 
 
 The development of this game is very slow. Don't expect releases in a short time.
 
-TODO:
+### TODO:
 
 1) Improve the leveling system
 
